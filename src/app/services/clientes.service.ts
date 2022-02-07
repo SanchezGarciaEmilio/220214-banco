@@ -13,4 +13,8 @@ export class ClienteService {
   getPersonas(): Observable<any> {
     return this.http.get(this.url + '/persona')
   }
+
+  eliminarPersonas(id: string): Observable<any> {
+    return this.http.delete(this.url + '/eliminar/' + id)
+  }
 }

@@ -42,7 +42,7 @@
                 <td>{{ persona._ingresos }}</td>
                 <td>
                   <i class="fas fa-user-edit cursor"></i>
-                  <i class="fas fa-trash-alt cursor margin"></i>
+                  <i (click)="eliminarPersona(persona._id)" class="fas fa-trash-alt cursor margin"></i>
                 </td>
               </tr>
             </tbody>
