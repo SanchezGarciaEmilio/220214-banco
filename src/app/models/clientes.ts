@@ -166,14 +166,13 @@ export class Persona extends Cliente {
 
 //Tipos
 export type tPersona = {
-    _id: string | null;
-    _tipoObjeto: string | null;
-    _nombre: string | null;
-    _telefono: string | null;
-    _direccion: {numero: string, calle: string} | null;
-    _capital: number | null;
-    _ingresos: number | null;
-    _comercial: string | null;
+    id: string;
+    nombre: string;
+    telefono: string;
+    numero: string, 
+    calle: string;
+    capital: number;
+    ingresos: number;
   }
 
   export type tEmpresa = {

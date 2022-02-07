@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tPersona } from '../models/clientes';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class ClienteService {
 
   eliminarPersonas(id: string): Observable<any> {
     return this.http.delete(this.url + '/eliminar/' + id)
+  }
+
+  registrarPersona(persona: tPersona): Observable<any> {
+    return this.http.post(this.url + '/registrarPersona', persona)
   }
 }

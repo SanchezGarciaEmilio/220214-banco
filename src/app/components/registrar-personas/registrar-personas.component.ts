@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { tPersona } from 'src/app/models/clientes';
+import { Persona, tPersona } from 'src/app/models/clientes';
+import { ClienteService } from 'src/app/services/clientes.service';
 
 @Component({
   selector: 'app-registrar-personas',
@@ -16,8 +17,9 @@ export class RegistrarPersonasComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrService
-    ) {
+    private toastr: ToastrService,
+    private _clienteService: ClienteService
+  ) {
     this.clienteForm = this.fb.group({
       dni: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -27,30 +29,27 @@ export class RegistrarPersonasComponent implements OnInit {
       capital: ['', Validators.required],
       ingresos: ['', Validators.required],
     })
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  crearCliente(){
+  crearCliente() {
 
     const CLIENTE: tPersona = {
-      _id: this.clienteForm.get('dni')?.value,
-      _tipoObjeto: 'Personal',
-      _nombre: this.clienteForm.get('nombre')?.value,
-      _telefono: this.clienteForm.get('telefono')?.value,
-      _direccion: {numero: this.clienteForm.get('numero')?.value, calle: this.clienteForm.get('calle')?.value},
-      _capital: this.clienteForm.get('capital')?.value,
-      _ingresos: this.clienteForm.get('ingresos')?.value,
-      _comercial: ""
+      id: this.clienteForm.get('dni')?.value,
+      nombre: this.clienteForm.get('nombre')?.value,
+      telefono: this.clienteForm.get('telefono')?.value,
+      numero: this.clienteForm.get('numero')?.value,
+      calle: this.clienteForm.get('calle')?.value,
+      capital: this.clienteForm.get('capital')?.value,
+      ingresos: this.clienteForm.get('ingresos')?.value,
     }
-
     console.log(CLIENTE)
-    this.toastr.success('El cliente fue creado correctamente', 'Cliente creado');
-    this.router.navigate(['/clientes/personales'])
-    
-  }
 
-  
+    this._clienteService.registrarPersona(CLIENTE).subscribe()
+    this.toastr.success('El cliente fue creado correctamente', 'Cliente creado');
+    this.clienteForm.reset()
+  }
 
 }
