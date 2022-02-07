@@ -1,0 +1,63 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <h3 class="col-auto">Listado de clientes</h3>
+            <input
+              class="mr-sm-5 offset-lg-8"
+              type="search"
+              placeholder="Buscar..."
+            />
+            <button
+              class="btn btn-success float-end"
+              routerLink="/clientes-personales/registrar"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">DNI</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Capital</th>
+                <th scope="col">Ingresos</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let persona of listPersonas">
+                <th scope="row">{{ persona._id }}</th>
+                <td>{{ persona._nombre }}</td>
+                <td>{{ persona._telefono }}</td>
+                <td>
+                  c/{{ persona._direccion.calle }},
+                  {{ persona._direccion.numero }}
+                </td>
+                <td>{{ persona._capital }}</td>
+                <td>{{ persona._ingresos }}</td>
+                <td>
+                  <i class="fas fa-user-edit cursor"></i>
+                  <i class="fas fa-trash-alt cursor margin"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-secondary btn-lg float-start" routerLink="/">
+            <i class="fas fa-sign-out"></i>
+          </button>
+          <button
+            class="btn btn-success float-end"
+            routerLink="/clientes/personales/registrar"
+          >
+            <i class="fas fa-user-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
