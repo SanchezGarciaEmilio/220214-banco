@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'clientes/personales', component: ListarPersonasComponent},
   { path: 'clientes/empresariales', component: ListarEmpresasComponent},
   { path: 'clientes/personales/registrar', component: RegistrarPersonasComponent},
+  { path: 'clientes/personales/registrar/:id', component: RegistrarPersonasComponent},
   { path: 'clientes/empresariales/registrar', component: RegistrarEmpresasComponent},
   { path: 'empleados', component: ListarEmpleadosComponent},
   { path: 'empleados/registrar', component: RegistrarEmpleadosComponent},

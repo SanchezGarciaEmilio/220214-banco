@@ -22,4 +22,10 @@ export class ClienteService {
   registrarPersona(persona: tPersona): Observable<any> {
     return this.http.post(this.url + '/registrarPersona', persona)
   }
+
+  obtenerPersona(id: string): Observable<any> {
+    return this.http.get(this.url + '/' + id)
+  }
+
+  editarPersona()
 }

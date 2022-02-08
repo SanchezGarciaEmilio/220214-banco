@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Persona, tPersona } from 'src/app/models/clientes';
 import { ClienteService } from 'src/app/services/clientes.service';
@@ -11,12 +11,14 @@ import { ClienteService } from 'src/app/services/clientes.service';
   styleUrls: ['./registrar-personas.component.css']
 })
 export class RegistrarPersonasComponent implements OnInit {
-
+  titulo = 'Registrar cliente'
   clienteForm: FormGroup;
+  id: string | null;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private aRouter: ActivatedRoute,
     private toastr: ToastrService,
     private _clienteService: ClienteService
   ) {
@@ -29,9 +31,11 @@ export class RegistrarPersonasComponent implements OnInit {
       capital: ['', Validators.required],
       ingresos: ['', Validators.required],
     })
+    this.id = this.aRouter.snapshot.paramMap.get('id')
   }
 
   ngOnInit(): void {
+    this.editarPersona()
   }
 
   crearCliente() {
@@ -50,6 +54,25 @@ export class RegistrarPersonasComponent implements OnInit {
     this._clienteService.registrarPersona(CLIENTE).subscribe()
     this.toastr.success('El cliente fue creado correctamente', 'Cliente creado');
     this.clienteForm.reset()
+  }
+
+  editarPersona() {
+
+    if (this.id !== null) {
+      this.titulo = "Editar cliente"
+      this._clienteService.obtenerPersona(this.id).subscribe(data => {
+        this.clienteForm.setValue({
+          dni: data[0]._id,
+          nombre: data[0]._nombre,
+          telefono: data[0]._telefono,
+          numero: data[0]._direccion.numero,
+          calle: data[0]._direccion.calle,
+          capital: data[0]._capital,
+          ingresos: data[0]._ingresos,
+        })
+      })
+    }
+
   }
 
 }

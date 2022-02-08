@@ -41,8 +41,14 @@
                 <td>{{ persona._capital }}</td>
                 <td>{{ persona._ingresos }}</td>
                 <td>
-                  <i class="fas fa-user-edit cursor"></i>
-                  <i (click)="eliminarPersona(persona._id)" class="fas fa-trash-alt cursor margin"></i>
+                  <i
+                    [routerLink]="['/clientes/personales/registrar', persona._id]"
+                    class="fas fa-user-edit cursor"
+                  ></i>
+                  <i
+                    (click)="eliminarPersona(persona._id)"
+                    class="fas fa-trash-alt cursor margin"
+                  ></i>
                 </td>
               </tr>
             </tbody>
