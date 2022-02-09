@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'clientes/personales/registrar', component: RegistrarPersonasComponent},
   { path: 'clientes/personales/registrar/:id', component: RegistrarPersonasComponent},
   { path: 'clientes/empresariales/registrar', component: RegistrarEmpresasComponent},
+  { path: 'clientes/empresariales/registrar/:id', component: RegistrarEmpresasComponent},
   { path: 'empleados', component: ListarEmpleadosComponent},
   { path: 'empleados/registrar', component: RegistrarEmpleadosComponent},
 ];

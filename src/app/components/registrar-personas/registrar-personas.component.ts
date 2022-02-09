@@ -39,7 +39,7 @@ export class RegistrarPersonasComponent implements OnInit {
     this.editarPersona()
   }
 
-  crearCliente() {
+  crearPersona() {
 
     const CLIENTE: tPersona = {
       id: this.clienteForm.get('dni')?.value,
@@ -53,7 +53,7 @@ export class RegistrarPersonasComponent implements OnInit {
     }
 
     if (this.id !== null) {
-      this._clienteService.editarPersona(this.id, CLIENTE).subscribe()
+      this._clienteService.editarCliente(this.id, CLIENTE).subscribe()
       this.toastr.info('El cliente fue actualizado correctamente', 'Cliente actualizado');
     } else {
       this._clienteService.registrarPersona(CLIENTE).subscribe()
@@ -66,7 +66,7 @@ export class RegistrarPersonasComponent implements OnInit {
 
     if (this.id !== null) {
       this.titulo = "Editar cliente"
-      this._clienteService.obtenerPersona(this.id).subscribe(data => {
+      this._clienteService.obtenerCliente(this.id).subscribe(data => {
         this.clienteForm.setValue({
           dni: data[0]._id,
           nombre: data[0]._nombre,

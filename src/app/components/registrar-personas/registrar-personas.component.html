@@ -4,7 +4,7 @@
       <h3 class="col-auto">
         <font color="White">{{ titulo | uppercase }}</font>
       </h3>
-      <form class="mt-3" [formGroup]="clienteForm" (ngSubmit)="crearCliente()">
+      <form class="mt-3" [formGroup]="clienteForm" (ngSubmit)="crearPersona()">
         <div class="mb-3">
           <input
             type="text"
@@ -149,7 +149,7 @@
             <i class="fas fa-sign-out"></i>
           </button>
           <button
-            (click)="crearCliente()"
+            (click)="crearPersona()"
             type="submit"
             [disabled]="clienteForm.invalid"
             class="btn btn-success btn-lg float-end"

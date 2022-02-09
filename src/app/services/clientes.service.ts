@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tPersona } from '../models/clientes';
+import { tEmpresa, tPersona } from '../models/clientes';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,11 @@ export class ClienteService {
     return this.http.get(this.url + '/persona')
   }
 
-  eliminarPersonas(id: string): Observable<any> {
+  getEmpresa(): Observable<any> {
+    return this.http.get(this.url + '/empresa')
+  }
+
+  eliminarCliente(id: string): Observable<any> {
     return this.http.delete(this.url + '/eliminar/' + id)
   }
 
@@ -23,11 +27,15 @@ export class ClienteService {
     return this.http.post(this.url + '/registrarPersona', persona)
   }
 
-  obtenerPersona(id: string): Observable<any> {
+  registrarEmpresa(empresa: tEmpresa): Observable<any> {
+    return this.http.post(this.url + '/registrarEmpresa', empresa)
+  }
+
+  obtenerCliente(id: string): Observable<any> {
     return this.http.get(this.url + '/' + id)
   }
 
-  editarPersona(id: string, persona: tPersona): Observable<any> {
+  editarCliente(id: string, persona: tPersona | tEmpresa): Observable<any> {
     return this.http.put(this.url + '/actualizar/' + id, persona)
   }
 }

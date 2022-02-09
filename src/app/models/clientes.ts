@@ -177,12 +177,12 @@ export type tPersona = {
   }
 
   export type tEmpresa = {
-    _id: string | null;
-    _tipoObjeto: string | null;
-    _nombre: string | null;
-    _telefono: string | null;
-    _direccion: {numero: string, calle: string} | null;
-    _capital: number | null;
-    _ingresos: number | null;
-    _plan: string | null;
+    id: string;
+    nombre: string;
+    telefono: string;
+    numero: string, 
+    calle: string;
+    capital: number;
+    ingresos: number;
+    plan: string;
   }

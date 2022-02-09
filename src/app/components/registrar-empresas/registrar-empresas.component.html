@@ -1,29 +1,163 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarTogglerDemo03"
-    aria-controls="navbarTogglerDemo03"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" routerLink="/">Inicio</a>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/clientes/personales"
-          >Clientes personales</a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/clientes/empresariales"
-          >Clientes empresariales</a
-        >
-      </li>
-    </ul>
+<div class="container mt-5">
+  <div class="row">
+    <div class="container col-4">
+      <h3 class="col-auto">
+        <font color="White">{{ titulo | uppercase }}</font>
+      </h3>
+      <form class="mt-3" [formGroup]="clienteForm" (ngSubmit)="crearEmpresa()">
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="nif"
+            class="form-control form-control-lg"
+            placeholder="NIF de la empresa"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('nif')?.hasError('required') &&
+              clienteForm.get('nif')?.touched
+            "
+          >
+            <span>El NIF es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="nombre"
+            class="form-control form-control-lg"
+            placeholder="Nombre completo"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('nombre')?.hasError('required') &&
+              clienteForm.get('nombre')?.touched
+            "
+          >
+            <span>El nombre es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="telefono"
+            class="form-control form-control-lg"
+            placeholder="Teléfono"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('telefono')?.hasError('required') &&
+              clienteForm.get('telefono')?.touched
+            "
+          >
+            <span>El telefono es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="numero"
+            class="form-control form-control-lg"
+            placeholder="Numero de calle"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('numero')?.hasError('required') &&
+              clienteForm.get('numero')?.touched
+            "
+          >
+            <span>El numero es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="calle"
+            class="form-control form-control-lg"
+            placeholder="Nombre de calle"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('calle')?.hasError('required') &&
+              clienteForm.get('calle')?.touched
+            "
+          >
+            <span>El calle es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            formControlName="capital"
+            class="form-control form-control-lg"
+            placeholder="Capital"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('capital')?.hasError('required') &&
+              clienteForm.get('capital')?.touched
+            "
+          >
+            <span>El capital es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            formControlName="ingresos"
+            class="form-control form-control-lg"
+            placeholder="Ingresos anuales"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('ingresos')?.hasError('required') &&
+              clienteForm.get('ingresos')?.touched
+            "
+          >
+            <span>El ingresos es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="string"
+            formControlName="plan"
+            class="form-control form-control-lg"
+            placeholder="Plan para la empresa"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('plan')?.hasError('required') &&
+              clienteForm.get('plan')?.touched
+            "
+          >
+            <span>El plan es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <button
+            class="btn btn-secondary btn-lg float-start"
+            routerLink="/clientes/empresariales"
+          >
+            <i class="fas fa-sign-out"></i>
+          </button>
+          <button
+            (click)="crearEmpresa()"
+            type="submit"
+            [disabled]="clienteForm.invalid"
+            class="btn btn-success btn-lg float-end"
+          >
+            <i class="fas fa-upload"></i>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</nav>
+</div>

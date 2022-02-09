@@ -1,2 +1,77 @@
-
-<p>listar-empresas works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="container-sm">
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <h3 class="col-auto">Listado de empresas</h3>
+              <form
+                [formGroup]="buscarForm"
+                class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+              >
+                <input
+                  type="search"
+                  formControlName="nif"
+                  placeholder="Buscar por NIF..."
+                />
+                <button (click)="listarEmpresas()" class="" routerLink="/clientes/empresariales">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+            </div>
+            <table class="table table-hover table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">NIF</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Capital (€)</th>
+                  <th scope="col">Ingresos (€)</th>
+                  <th scope="col">Plan</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let empresa of listEmpresas">
+                  <th scope="row">{{ empresa._id }}</th>
+                  <td>{{ empresa._nombre }}</td>
+                  <td>{{ empresa._telefono }}</td>
+                  <td>
+                    c/{{ empresa._direccion.calle }},
+                    {{ empresa._direccion.numero }}
+                  </td>
+                  <td>{{ empresa._capital }}</td>
+                  <td>{{ empresa._ingresos }}</td>
+                  <td>{{ empresa._plan }}</td>
+                  <td>
+                    <i
+                      [routerLink]="[
+                        '/clientes/empresariales/registrar',
+                        empresa._id
+                      ]"
+                      class="fas fa-user-edit cursor"
+                    ></i>
+                    <i
+                      (click)="eliminarEmpresa(empresa._id)"
+                      class="fas fa-trash-alt cursor margin"
+                    ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-secondary btn-lg float-start" routerLink="/">
+              <i class="fas fa-sign-out"></i>
+            </button>
+            <button
+              class="btn btn-success float-end"
+              routerLink="/clientes/empresariales/registrar"
+            >
+              <i class="fas fa-user-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
