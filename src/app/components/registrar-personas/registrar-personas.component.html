@@ -10,7 +10,7 @@
             type="text"
             formControlName="dni"
             class="form-control form-control-lg"
-            placeholder="DNI"
+            placeholder="DNI del cliente"
           />
           <div
             class="text-danger"
@@ -27,7 +27,7 @@
             type="text"
             formControlName="nombre"
             class="form-control form-control-lg"
-            placeholder="Nombre"
+            placeholder="Nombre completo"
           />
           <div
             class="text-danger"
@@ -61,7 +61,7 @@
             type="text"
             formControlName="numero"
             class="form-control form-control-lg"
-            placeholder="Numero"
+            placeholder="Numero de calle"
           />
           <div
             class="text-danger"
@@ -78,7 +78,7 @@
             type="text"
             formControlName="calle"
             class="form-control form-control-lg"
-            placeholder="Calle"
+            placeholder="Nombre de calle"
           />
           <div
             class="text-danger"
@@ -112,7 +112,7 @@
             type="number"
             formControlName="ingresos"
             class="form-control form-control-lg"
-            placeholder="Ingresos"
+            placeholder="Ingresos anuales"
           />
           <div
             class="text-danger"
@@ -122,6 +122,23 @@
             "
           >
             <span>El ingresos es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="string"
+            formControlName="comercial"
+            class="form-control form-control-lg"
+            placeholder="DNI del comercial"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('comercial')?.hasError('required') &&
+              clienteForm.get('comercial')?.touched
+            "
+          >
+            <span>El comercial es <strong>obligatorio</strong></span>
           </div>
         </div>
         <div class="mb-3">

@@ -30,6 +30,7 @@ export class RegistrarPersonasComponent implements OnInit {
       calle: ['', Validators.required],
       capital: ['', Validators.required],
       ingresos: ['', Validators.required],
+      comercial: ['', Validators.required],
     })
     this.id = this.aRouter.snapshot.paramMap.get('id')
   }
@@ -48,6 +49,7 @@ export class RegistrarPersonasComponent implements OnInit {
       calle: this.clienteForm.get('calle')?.value,
       capital: this.clienteForm.get('capital')?.value,
       ingresos: this.clienteForm.get('ingresos')?.value,
+      comercial: this.clienteForm.get('comercial')?.value,
     }
 
     if (this.id !== null) {
@@ -73,6 +75,7 @@ export class RegistrarPersonasComponent implements OnInit {
           calle: data[0]._direccion.calle,
           capital: data[0]._capital,
           ingresos: data[0]._ingresos,
+          comercial: data[0]._comercial,
         })
       })
     }

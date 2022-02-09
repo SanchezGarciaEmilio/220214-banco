@@ -173,6 +173,7 @@ export type tPersona = {
     calle: string;
     capital: number;
     ingresos: number;
+    comercial: string;
   }
 
   export type tEmpresa = {
