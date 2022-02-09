@@ -1,153 +1,146 @@
-
 <div class="container mt-5">
   <div class="row">
-    <div class="col-lg-6 offset-lg-3">
-      <div class="card">
-        <div class="card-body text-center">
-          <h3 class="col-auto">{{ titulo | uppercase}}</h3>
-          <form
-            class="mt-3"
-            [formGroup]="clienteForm"
-            (ngSubmit)="crearCliente()"
+    <div class="container col-4">
+      <h3 class="col-auto">
+        <font color="White">{{ titulo | uppercase }}</font>
+      </h3>
+      <form class="mt-3" [formGroup]="clienteForm" (ngSubmit)="crearCliente()">
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="dni"
+            class="form-control form-control-lg"
+            placeholder="DNI"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('dni')?.hasError('required') &&
+              clienteForm.get('dni')?.touched
+            "
           >
-            <div class="mb-3">
-              <input
-                type="text"
-                formControlName="dni"
-                class="form-control form-control-lg"
-                placeholder="DNI"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  clienteForm.get('dni')?.hasError('required') &&
-                  clienteForm.get('dni')?.touched
-                "
-              >
-                <span>El DNI es <strong>obligatorio</strong></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                formControlName="nombre"
-                class="form-control form-control-lg"
-                placeholder="Nombre"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  clienteForm.get('nombre')?.hasError('required') &&
-                  clienteForm.get('nombre')?.touched
-                "
-              >
-                <span>El nombre es <strong>obligatorio</strong></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                formControlName="telefono"
-                class="form-control form-control-lg"
-                placeholder="Teléfono"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  clienteForm.get('telefono')?.hasError('required') &&
-                  clienteForm.get('telefono')?.touched
-                "
-              >
-                <span>El telefono es <strong>obligatorio</strong></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                formControlName="numero"
-                class="form-control form-control-lg"
-                placeholder="Numero"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  clienteForm.get('numero')?.hasError('required') &&
-                  clienteForm.get('numero')?.touched
-                "
-              >
-                <span>El numero es <strong>obligatorio</strong></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                formControlName="calle"
-                class="form-control form-control-lg"
-                placeholder="Calle"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  clienteForm.get('calle')?.hasError('required') &&
-                  clienteForm.get('calle')?.touched
-                "
-              >
-                <span>El calle es <strong>obligatorio</strong></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <input
-                type="number"
-                formControlName="capital"
-                class="form-control form-control-lg"
-                placeholder="Capital"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  clienteForm.get('capital')?.hasError('required') &&
-                  clienteForm.get('capital')?.touched
-                "
-              >
-                <span>El capital es <strong>obligatorio</strong></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <input
-                type="number"
-                formControlName="ingresos"
-                class="form-control form-control-lg"
-                placeholder="Ingresos"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  clienteForm.get('ingresos')?.hasError('required') &&
-                  clienteForm.get('ingresos')?.touched
-                "
-              >
-                <span>El ingresos es <strong>obligatorio</strong></span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <button
-                class="btn btn-secondary btn-lg float-start"
-                routerLink="/clientes/personales"
-              >
-                <i class="fas fa-sign-out"></i>
-              </button>
-              <button
-                (click)="crearCliente()"
-                type="submit"
-                [disabled]="clienteForm.invalid"
-                class="btn btn-success btn-lg float-end"
-              >
-                <i class="fas fa-upload"></i>
-              </button>
-            </div>
-          </form>
+            <span>El DNI es <strong>obligatorio</strong></span>
+          </div>
         </div>
-      </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="nombre"
+            class="form-control form-control-lg"
+            placeholder="Nombre"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('nombre')?.hasError('required') &&
+              clienteForm.get('nombre')?.touched
+            "
+          >
+            <span>El nombre es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="telefono"
+            class="form-control form-control-lg"
+            placeholder="Teléfono"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('telefono')?.hasError('required') &&
+              clienteForm.get('telefono')?.touched
+            "
+          >
+            <span>El telefono es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="numero"
+            class="form-control form-control-lg"
+            placeholder="Numero"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('numero')?.hasError('required') &&
+              clienteForm.get('numero')?.touched
+            "
+          >
+            <span>El numero es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="calle"
+            class="form-control form-control-lg"
+            placeholder="Calle"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('calle')?.hasError('required') &&
+              clienteForm.get('calle')?.touched
+            "
+          >
+            <span>El calle es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            formControlName="capital"
+            class="form-control form-control-lg"
+            placeholder="Capital"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('capital')?.hasError('required') &&
+              clienteForm.get('capital')?.touched
+            "
+          >
+            <span>El capital es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            formControlName="ingresos"
+            class="form-control form-control-lg"
+            placeholder="Ingresos"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              clienteForm.get('ingresos')?.hasError('required') &&
+              clienteForm.get('ingresos')?.touched
+            "
+          >
+            <span>El ingresos es <strong>obligatorio</strong></span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <button
+            class="btn btn-secondary btn-lg float-start"
+            routerLink="/clientes/personales"
+          >
+            <i class="fas fa-sign-out"></i>
+          </button>
+          <button
+            (click)="crearCliente()"
+            type="submit"
+            [disabled]="clienteForm.invalid"
+            class="btn btn-success btn-lg float-end"
+          >
+            <i class="fas fa-upload"></i>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

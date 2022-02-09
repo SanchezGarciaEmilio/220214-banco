@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Empresa, Persona } from 'src/app/models/clientes';
@@ -11,17 +12,32 @@ import { ClienteService } from 'src/app/services/clientes.service';
 })
 export class ListarPersonasComponent implements OnInit {
   listPersonas: Persona[] = []
+  buscarForm: FormGroup;
 
-  constructor(private _clientesService: ClienteService, private toastr: ToastrService) { }
+
+  constructor(private _clientesService: ClienteService, private toastr: ToastrService, private fb: FormBuilder,) {
+    this.buscarForm = this.fb.group({
+      dni: ['', Validators.required]
+    })
+  }
 
   ngOnInit(): void {
     this.listarPersonas()
   }
 
   listarPersonas() {
-    this._clientesService.getPersonas().subscribe(data => {
-      this.listPersonas = data
-    })
+    let dni = ""
+    dni = this.buscarForm.get('dni')?.value
+
+    if (dni == "") {
+      this._clientesService.getPersonas().subscribe(data => {
+        this.listPersonas = data
+      })
+    } else {
+      this._clientesService.obtenerPersona(dni).subscribe(data => {
+        this.listPersonas = data
+      })
+    }
   }
 
   eliminarPersona(id: any) {

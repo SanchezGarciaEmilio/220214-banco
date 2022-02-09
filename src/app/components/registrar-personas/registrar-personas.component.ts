@@ -51,7 +51,7 @@ export class RegistrarPersonasComponent implements OnInit {
     }
 
     if (this.id !== null) {
-      this._clienteService.editarPersona(this.id ,CLIENTE).subscribe()
+      this._clienteService.editarPersona(this.id, CLIENTE).subscribe()
       this.toastr.info('El cliente fue actualizado correctamente', 'Cliente actualizado');
     } else {
       this._clienteService.registrarPersona(CLIENTE).subscribe()
