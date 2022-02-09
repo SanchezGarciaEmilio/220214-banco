@@ -27,5 +27,7 @@ export class ClienteService {
     return this.http.get(this.url + '/' + id)
   }
 
-  editarPersona()
+  editarPersona(id: string, persona: tPersona): Observable<any> {
+    return this.http.put(this.url + '/actualizar/' + id, persona)
+  }
 }

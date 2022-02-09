@@ -49,11 +49,15 @@ export class RegistrarPersonasComponent implements OnInit {
       capital: this.clienteForm.get('capital')?.value,
       ingresos: this.clienteForm.get('ingresos')?.value,
     }
-    console.log(CLIENTE)
 
-    this._clienteService.registrarPersona(CLIENTE).subscribe()
-    this.toastr.success('El cliente fue creado correctamente', 'Cliente creado');
-    this.clienteForm.reset()
+    if (this.id !== null) {
+      this._clienteService.editarPersona(this.id ,CLIENTE).subscribe()
+      this.toastr.info('El cliente fue actualizado correctamente', 'Cliente actualizado');
+    } else {
+      this._clienteService.registrarPersona(CLIENTE).subscribe()
+      this.toastr.success('El cliente fue creado correctamente', 'Cliente creado');
+      this.clienteForm.reset()
+    }
   }
 
   editarPersona() {
