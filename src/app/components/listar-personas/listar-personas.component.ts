@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { Persona } from 'src/app/models/clientes';
+import { Persona, tPersona } from 'src/app/models/clientes';
 import { ClienteService } from 'src/app/services/clientes.service';
 
 @Component({
@@ -41,7 +41,7 @@ export class ListarPersonasComponent implements OnInit {
   }
 
   eliminarPersona(id: any) {
-    this.listPersonas = this.listPersonas.filter((h) => h._id !== id)
+    this.listPersonas = this.listPersonas.filter((h) => h.id !== id)
     this._clientesService.eliminarCliente(id).subscribe()
     this.toastr.error('El cliente fue eliminado correctamente', 'Cliente eliminado')
   }

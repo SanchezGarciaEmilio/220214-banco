@@ -235,38 +235,43 @@ export class Comercial extends Empleado {
 
 //Tipos
 export type tDirectivo = {
-    _id: string | null;
-    _tipoObjeto: string | null;
-    _nombre: string | null;
-    _telefono: { movil: string, fijo: string| null } | null;
-    _direccion: direccion[] | null;
-    _iban: string | null;
-    _sueldo: number | null;
-    _fecha: Date | null;
-    _nivel: string | null;
+    id: string;
+    tipoObjeto: string;
+    nombre: string;
+    movil: string
+    fijo: string
+    numero: string, 
+    calle: string;
+    iban: string;
+    sueldo: number;
+    fecha: Date;
+    nivel: string;
   };
 
   export type tLimpiador = {
-    _id: string | null;
-    _tipoObjeto: string | null;
-    _nombre: string | null;
-    _telefono: { movil: string, fijo: string| null } | null;
-    _direccion: direccion[] | null;
-    _iban: string | null;
-    _sueldo: number | null;
-    _fecha: Date | null;
-    _empresa: string | null;
+    id: string;
+    tipoObjeto: string;
+    nombre: string;
+    movil: string
+    fijo: string
+    numero: string, 
+    calle: string;
+    iban: string;
+    sueldo: number;
+    fecha: Date;
+    empresa: string;
   };
 
   export type tComercial = {
-    _id: string | null;
-    _tipoObjeto: string | null;
-    _nombre: string | null;
-    _telefono: { movil: string, fijo: string | null } | null;
-    _direccion: direccion[] | null;
-    _iban: string | null;
-    _sueldo: number | null;
-    _fecha: Date | null;
-    _horas: number | null;
-    _minimo: boolean | null;
+    id: string;
+    tipoObjeto: string;
+    movil: string
+    fijo: string
+    numero: string, 
+    calle: string
+    iban: string;
+    sueldo: number;
+    fecha: Date;
+    horas: number;
+    minimo: boolean;
   };

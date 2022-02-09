@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="container-sm">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <h3 class="col-auto">Listado de clientes</h3>
+            <form
+              [formGroup]="buscarForm"
+              class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+            >
+              <input
+                type="search"
+                formControlName="dni"
+                placeholder="Buscar por DNI..."
+              />
+              <button (click)="listarDirectivos()" class="">
+                <i class="fas fa-search"></i>
+              </button>
+              <br />
+              <button (click)="listarDirectivos()" class=""></button>
+              <button (click)="listarComerciales()" class=""></button>
+              <button (click)="listarLimpiadores()" class=""></button>
+            </form>
+          </div>
+          <table class="table table-hover table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">DNI</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">IBAN</th>
+                <th scope="col">Sueldo (€)</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">{{ titulo }}</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let empleado of listEmpleado">
+                <th scope="row">{{ empleado._id }}</th>
+                <td>{{ empleado._nombre }}</td>
+                <td>{{ empleado._telefono.movil }}</td>
+                <td>
+                  c/{{ empleado._direccion[0].calle }},
+                  {{ empleado._direccion[0].numero }}
+                </td>
+                <td>{{ empleado._iban }}</td>
+                <td>{{ empleado._sueldo }}</td>
+                <td>{{ empleado._fecha }}</td>
+                <td>{{ empleado._nivel }}{{ empleado._empresa }}{{ empleado._horas }}</td>
+                <td>
+                  <i
+                    [routerLink]="[
+                      '/clientes/personales/registrar',
+                      empleado._id
+                    ]"
+                    class="fas fa-user-edit cursor"
+                  ></i>
+                  <i
+                    (click)="eliminarEmpleado(empleado._id)"
+                    class="fas fa-trash-alt cursor margin"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-secondary btn-lg float-start" routerLink="/">
+            <i class="fas fa-sign-out"></i>
+          </button>
+          <button
+            class="btn btn-success float-end"
+            routerLink="/clientes/personales/registrar"
+          >
+            <i class="fas fa-user-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

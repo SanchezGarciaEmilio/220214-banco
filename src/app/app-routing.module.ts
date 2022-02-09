@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'clientes/empresariales/registrar/:id', component: RegistrarEmpresasComponent},
   { path: 'empleados', component: ListarEmpleadosComponent},
   { path: 'empleados/registrar', component: RegistrarEmpleadosComponent},
+  { path: 'empleados/registrar/:id', component: RegistrarEmpleadosComponent},
 ];
 
 @NgModule({
