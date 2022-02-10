@@ -13,7 +13,7 @@ import { EmpleadosService } from 'src/app/services/empleados.service';
 export class ListarEmpleadosComponent implements OnInit {
   listEmpleado: any[] = []
   buscarForm: FormGroup;
-  titulo = '...'
+  titulo = ''
 
   constructor(private _empleadoService: EmpleadosService, private toastr: ToastrService, private fb: FormBuilder) {
     this.buscarForm = this.fb.group({
@@ -22,6 +22,7 @@ export class ListarEmpleadosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listarDirectivos()
   }
 
   listarDirectivos() {
@@ -32,6 +33,7 @@ export class ListarEmpleadosComponent implements OnInit {
     if (dni == "") {
       this._empleadoService.getDirectivos().subscribe(data => {
         this.listEmpleado = data
+        this.toastr.info('Directivos fue listado correctamente', 'Directivos')
       })
     } else {
       this._empleadoService.obtenerEmpleado(dni).subscribe(data => {
@@ -48,6 +50,7 @@ export class ListarEmpleadosComponent implements OnInit {
     if (dni == "") {
       this._empleadoService.getComerciales().subscribe(data => {
         this.listEmpleado = data
+        this.toastr.info('Comerciales fue listado correctamente', 'Comerciales')
       })
     } else {
       this._empleadoService.obtenerEmpleado(dni).subscribe(data => {
@@ -59,11 +62,12 @@ export class ListarEmpleadosComponent implements OnInit {
   listarLimpiadores() {
     let dni = ""
     dni = this.buscarForm.get('dni')?.value
-    this.titulo = "Nivel"
+    this.titulo = "Empresa"
 
     if (dni == "") {
       this._empleadoService.getLimpiadores().subscribe(data => {
         this.listEmpleado = data
+        this.toastr.info('Limpiadores fue listado correctamente', 'Limpiadores')
       })
     } else {
       this._empleadoService.obtenerEmpleado(dni).subscribe(data => {

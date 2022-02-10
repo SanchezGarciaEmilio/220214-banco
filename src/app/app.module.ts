@@ -14,7 +14,6 @@ import { ListarEmpresasComponent } from './components/listar-empresas/listar-emp
 import { RegistrarPersonasComponent } from './components/registrar-personas/registrar-personas.component';
 import { RegistrarEmpresasComponent } from './components/registrar-empresas/registrar-empresas.component';
 import { ListarEmpleadosComponent } from './components/listar-empleados/listar-empleados.component';
-import { RegistrarEmpleadosComponent } from './components/registrar-empleados/registrar-empleados.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { RegistrarEmpleadosComponent } from './components/registrar-empleados/re
     ListarEmpresasComponent,
     RegistrarPersonasComponent,
     RegistrarEmpresasComponent,
-    ListarEmpleadosComponent,
-    RegistrarEmpleadosComponent
+    ListarEmpleadosComponent
   ],
   imports: [
     BrowserModule,

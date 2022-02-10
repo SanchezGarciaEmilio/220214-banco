@@ -236,7 +236,6 @@ export class Comercial extends Empleado {
 //Tipos
 export type tDirectivo = {
     id: string;
-    tipoObjeto: string;
     nombre: string;
     movil: string
     fijo: string
@@ -250,7 +249,6 @@ export type tDirectivo = {
 
   export type tLimpiador = {
     id: string;
-    tipoObjeto: string;
     nombre: string;
     movil: string
     fijo: string
@@ -264,7 +262,7 @@ export type tDirectivo = {
 
   export type tComercial = {
     id: string;
-    tipoObjeto: string;
+    nombre: string;
     movil: string
     fijo: string
     numero: string, 
@@ -273,5 +271,20 @@ export type tDirectivo = {
     sueldo: number;
     fecha: Date;
     horas: number;
-    minimo: boolean;
   };
+
+  export type tEmpleado = {
+    id: string;
+    nombre: string;
+    movil: string
+    fijo: string
+    numero: string, 
+    calle: string;
+    iban: string;
+    sueldo: number;
+    fecha: Date;
+    nivel: string;
+    empresa: string,
+    horas: string;
+    minimo: string
+  }

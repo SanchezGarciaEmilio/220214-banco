@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <div>
-            <h3 class="col-auto">Listado de clientes</h3>
+            <h3 class="col-auto">Listado de empleados</h3>
             <form
               [formGroup]="buscarForm"
               class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
@@ -18,9 +18,39 @@
                 <i class="fas fa-search"></i>
               </button>
               <br />
-              <button (click)="listarDirectivos()" class=""></button>
-              <button (click)="listarComerciales()" class=""></button>
-              <button (click)="listarLimpiadores()" class=""></button>
+              <div class="btn-group btn-group-toggle mt-2 div-centrado" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input
+                    (click)="listarDirectivos()"
+                    type="radio"
+                    name="options"
+                    id="option1"
+                    autocomplete="off"
+                    checked
+                  />
+                  Directivos
+                </label>
+                <label class="btn btn-secondary">
+                  <input
+                    (click)="listarComerciales()"
+                    type="radio"
+                    name="options"
+                    id="option2"
+                    autocomplete="off"
+                  />
+                  Comerciales
+                </label>
+                <label class="btn btn-secondary">
+                  <input
+                    (click)="listarLimpiadores()"
+                    type="radio"
+                    name="options"
+                    id="option3"
+                    autocomplete="off"
+                  />
+                  Limpiadores
+                </label>
+              </div>
             </form>
           </div>
           <table class="table table-hover table-striped">
@@ -49,11 +79,14 @@
                 <td>{{ empleado._iban }}</td>
                 <td>{{ empleado._sueldo }}</td>
                 <td>{{ empleado._fecha }}</td>
-                <td>{{ empleado._nivel }}{{ empleado._empresa }}{{ empleado._horas }}</td>
+                <td>
+                  {{ empleado._nivel }}{{ empleado._empresa
+                  }}{{ empleado._horas }}
+                </td>
                 <td>
                   <i
                     [routerLink]="[
-                      '/clientes/personales/registrar',
+                      '/empleados/registrar/',
                       empleado._id
                     ]"
                     class="fas fa-user-edit cursor"
@@ -68,12 +101,6 @@
           </table>
           <button class="btn btn-secondary btn-lg float-start" routerLink="/">
             <i class="fas fa-sign-out"></i>
-          </button>
-          <button
-            class="btn btn-success float-end"
-            routerLink="/clientes/personales/registrar"
-          >
-            <i class="fas fa-user-plus"></i>
           </button>
         </div>
       </div>
