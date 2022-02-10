@@ -64,7 +64,6 @@
                 <th scope="col">Sueldo (€)</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">{{ titulo }}</th>
-                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -82,19 +81,6 @@
                 <td>
                   {{ empleado._nivel }}{{ empleado._empresa
                   }}{{ empleado._horas }}
-                </td>
-                <td>
-                  <i
-                    [routerLink]="[
-                      '/empleados/registrar/',
-                      empleado._id
-                    ]"
-                    class="fas fa-user-edit cursor"
-                  ></i>
-                  <i
-                    (click)="eliminarEmpleado(empleado._id)"
-                    class="fas fa-trash-alt cursor margin"
-                  ></i>
                 </td>
               </tr>
             </tbody>

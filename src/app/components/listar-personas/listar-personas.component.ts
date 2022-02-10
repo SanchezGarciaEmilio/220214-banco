@@ -32,6 +32,7 @@ export class ListarPersonasComponent implements OnInit {
     if (dni == "") {
       this._clientesService.getPersonas().subscribe(data => {
         this.listPersonas = data
+
       })
     } else {
       this._clientesService.obtenerCliente(dni).subscribe(data => {
@@ -41,7 +42,7 @@ export class ListarPersonasComponent implements OnInit {
   }
 
   eliminarPersona(id: any) {
-    this.listPersonas = this.listPersonas.filter((h) => h.id !== id)
+    this.listPersonas = this.listPersonas.filter((h) => h._id !== id)
     this._clientesService.eliminarCliente(id).subscribe()
     this.toastr.error('El cliente fue eliminado correctamente', 'Cliente eliminado')
   }

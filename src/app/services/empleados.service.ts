@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tComercial, tDirectivo, tLimpiador } from '../models/empleados';
+import { Empleado, tComercial, tDirectivo, tLimpiador } from '../models/empleados';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +45,5 @@ export class EmpleadosService {
   editarEmpleado(id: string, empleado: tComercial | tDirectivo | tLimpiador): Observable<any> {
     return this.http.put(this.url + '/actualizar/' + id, empleado)
   }
+
 }

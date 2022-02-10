@@ -14,6 +14,8 @@ import { ListarEmpresasComponent } from './components/listar-empresas/listar-emp
 import { RegistrarPersonasComponent } from './components/registrar-personas/registrar-personas.component';
 import { RegistrarEmpresasComponent } from './components/registrar-empresas/registrar-empresas.component';
 import { ListarEmpleadosComponent } from './components/listar-empleados/listar-empleados.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ListarEmpleadosComponent } from './components/listar-empleados/listar-e
     ListarEmpresasComponent,
     RegistrarPersonasComponent,
     RegistrarEmpresasComponent,
-    ListarEmpleadosComponent
+    ListarEmpleadosComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ListarEmpleadosComponent } from './components/listar-empleados/listar-e
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
