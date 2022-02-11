@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { Persona, tPersona } from 'src/app/models/clientes';
+import { Empresa, Persona, Renta, tPersona, tRenta } from 'src/app/models/clientes';
 import { ClienteService } from 'src/app/services/clientes.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 
@@ -11,87 +11,57 @@ import { EmpleadosService } from 'src/app/services/empleados.service';
 })
 export class EstadisticasComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
-  listPersonas: Persona[] = []
-  listRentas: any[] = []
+  listRenta: Renta[] = []
 
   chartOptions: any = {
-    chart: {
+    chart: 
+    {
       backgroundColor: {
         linearGradient: [0, 0, 500, 500],
         stops: [
-          [0, 'rgb(192, 193, 192)'],
-          [1, 'rgb(217, 217, 217)']
+            [0, 'rgb(192, 193, 192)'],
+            [1, 'rgb(217, 217, 217)']
         ]
-      },
-      type: 'bar',
+    },
+      type: 'column'
     },
     title: {
-      text: 'Tabla Clasificacin Mundial F1 2021',
-    },
-    subtitle: {
-      text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>',
-    },
-    yAxis: {
-      tickInterval: 5,
-      categories: [],
+      text: 'Ganancias de clientes'
     },
     xAxis: {
-      min: 0,
-      title: {
-        text: 'pilotos',
-        align: 'high',
-      },
-      labels: {
-        overflow: 'justify',
-      },
-    },
-    tooltip: {
-      valueSuffix: ' millions',
-    },
-    plotOptions: {
-      bar: {
-        dataLabels: {
-          enabled: true,
-        },
-      },
+      categories: []
     },
     credits: {
-      enabled: false,
+      enabled: false
     },
-    series: [
-      {
-        type: 'column',
-        name: 'Puntos',
-        data: [],
-        color: 'red',
-      },
-    ],
-    noData: {
-      style: {
-        fontWeight: 'bold',
-        fontSize: '15px',
-        color: '#303030',
-      },
-    },
+    series: [{
+      name: '',
+      data: []
+    }]
   };
 
   constructor(private _clientesService: ClienteService, private _empleadoService: EmpleadosService) { }
 
   ngOnInit(): void {
-    this.getRenta()
+    this.obtenerRenta()
   }
 
-  getRenta() {
-    this._clientesService.getPersonas().subscribe(data => {
-      this.listPersonas = data
+  obtenerRenta() {
+    this._clientesService.getRenta().subscribe((result: any) => {
 
-      for (var i = 0; i < this.listPersonas.length; i++) {
-        this._clientesService.getRenta(this.listPersonas[i]._id).subscribe(data => {
-          this.listRentas = data
-          console.log(this.listRentas)
-        })
+      this.listRenta = result.map((renta: any) => {
+        return new Renta(renta._id, renta._nombre, renta._renta)
+      })
 
-      }
+      const dataSeries = this.listRenta.map((x: Renta) => x._renta)
+      const dataCategorias = this.listRenta.map((x: Renta) => x._nombre)
+
+      this.chartOptions.series[0]["data"] = dataSeries
+      this.chartOptions.xAxis["categories"] = dataCategorias
+
+      Highcharts.chart("renta", this.chartOptions)
+
+
     })
   }
 

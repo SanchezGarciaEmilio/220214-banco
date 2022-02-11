@@ -3,32 +3,32 @@
 export abstract class Cliente {
     public _id: string; //DNI del cliente o CIF de la empresa
     public _nombre: string; //del cliente o la empresa
-    public _telefono: string; 
-    public _direccion: {numero: string, calle: string};
+    public _telefono: string;
+    public _direccion: { numero: string, calle: string };
     public _capital: number;
     public _ingresos: number; //ingresos anuales
 
     public constructor(id: string,
         nombre: string,
         telefono: string,
-        direccion: {numero: string, calle: string},
+        direccion: { numero: string, calle: string },
         capital: number,
         ingresos: number) {
         this._id = id,
-        this._nombre = nombre,
-        this._telefono = telefono,
-        this._direccion = direccion,
-        this._capital = capital,
-        this._ingresos = ingresos
+            this._nombre = nombre,
+            this._telefono = telefono,
+            this._direccion = direccion,
+            this._capital = capital,
+            this._ingresos = ingresos
     }
 
     /*---------------Get y set---------------*/
 
     get id() {
-       return this._id
+        return this._id
     }
     get nombre() {
-       return this._nombre
+        return this._nombre
     }
     get telefono() {
         return this._telefono
@@ -64,12 +64,12 @@ export abstract class Cliente {
         //Dependiendo del capital invertiremos más o menos dinero
         if (capital < 100000) {
             ganancias = capital - (capital * 0.97)
-        } else if ( capital < 500000) {
+        } else if (capital < 500000) {
             ganancias = capital - (capital * 0.98)
         } else {
             ganancias = capital - (capital * 0.99)
         }
-        
+
         return ganancias
     }
 }
@@ -80,7 +80,7 @@ export class Empresa extends Cliente {
     public constructor(id: string,
         nombre: string,
         telefono: string,
-        direccion: {numero: string, calle: string},
+        direccion: { numero: string, calle: string },
         capital: number,
         ingresos: number,
         plan: string) {
@@ -91,7 +91,7 @@ export class Empresa extends Cliente {
     /*---------------Get y set---------------*/
 
     get plan() {
-       return this._plan
+        return this._plan
     }
 
     /*---------------Métodos---------------*/
@@ -108,9 +108,9 @@ export class Empresa extends Cliente {
         let plan: string = this._plan
 
         if (plan == "1") {
-            ganacias = ganacias + ( ganacias * 0.01 )
+            ganacias = ganacias + (ganacias * 0.01)
         } else if (plan == "2") {
-            ganacias = ganacias + (( ganacias * 0.05 ) / 2 )
+            ganacias = ganacias + ((ganacias * 0.05) / 2)
         } else if (plan == "3") {
             ganacias = ganacias - 100000
         }
@@ -125,7 +125,7 @@ export class Persona extends Cliente {
     public constructor(id: string,
         nombre: string,
         telefono: string,
-        direccion: {numero: string, calle: string},
+        direccion: { numero: string, calle: string },
         capital: number,
         ingresos: number,
         comercial: string) {
@@ -136,7 +136,7 @@ export class Persona extends Cliente {
     /*---------------Get y set---------------*/
 
     get comercial() {
-       return this._comercial
+        return this._comercial
     }
 
 
@@ -159,7 +159,7 @@ export class Persona extends Cliente {
         }
 
         return ganancias
-        
+
     }
 }
 
@@ -169,20 +169,40 @@ export type tPersona = {
     id: string;
     nombre: string;
     telefono: string;
-    numero: string, 
+    numero: string,
     calle: string;
     capital: number;
     ingresos: number;
     comercial: string;
-  }
+}
 
-  export type tEmpresa = {
+export type tEmpresa = {
     id: string;
     nombre: string;
     telefono: string;
-    numero: string, 
+    numero: string,
     calle: string;
     capital: number;
     ingresos: number;
     plan: string;
-  }
+}
+
+export type tRenta = {
+    _id: String,
+    _nombre: String,
+    _renta: Number
+}
+
+export class Renta {
+    public _id: string;
+    public _nombre: string;
+    public _renta: number
+
+    public constructor(id: string,
+        nombre: string,
+        renta: number,) {
+        this._id = id
+        this._nombre = nombre
+        this._renta = renta
+    }
+}

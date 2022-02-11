@@ -39,8 +39,8 @@ export class ClienteService {
     return this.http.put(this.url + '/actualizar/' + id, persona)
   }
 
-  getRenta(id: string): Observable<any> {
-    return this.http.get(this.url + '/renta/' + id)
+  getRenta(): Observable<any> {
+    return this.http.get(this.url + '/renta/')
   }
 
 }
