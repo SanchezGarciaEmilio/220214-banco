@@ -1,0 +1,54 @@
+import { Component, OnInit, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { Persona, tPersona } from 'src/app/models/clientes';
+import { tRegistro } from 'src/app/models/registro';
+import { ClienteService } from 'src/app/services/clientes.service';
+@Component({
+  selector: 'app-prestamo',
+  templateUrl: './prestamo.component.html',
+  styleUrls: ['./prestamo.component.css']
+})
+export class PrestamoComponent implements OnInit {
+  prestamoForm: FormGroup
+  idCliente: string = ""
+  capital: number = 0
+
+  constructor(private fb: FormBuilder, private _clientesService: ClienteService) {
+    this.prestamoForm = this.fb.group({
+      idCliente: ['', Validators.required],
+      idEmpleado: ['', Validators.required],
+      prestamo: ['', Validators.required],
+    })
+  }
+
+  ngOnInit(): void {
+    this.listarPrestamos()
+  }
+
+  crearPrestamo() {
+
+     this.idCliente = this.prestamoForm.get('idCliente')?.value
+
+     this._clientesService.obtenerCliente(this.idCliente).subscribe(data => {
+       this.capital = data[0]._ingresos
+
+      const PRESTAMO: tRegistro = {
+        idComercial: this.prestamoForm.get('idEmpleado')?.value,
+        idCliente: this.prestamoForm.get('idCliente')?.value,
+        prestamo: this.prestamoForm.get('prestamo')?.value,
+        capitalCliente: this.capital
+      }
+      console.log(PRESTAMO)
+      this._clientesService.crearPrestamo(PRESTAMO).subscribe()
+
+     })
+
+  }
+
+  listarPrestamos() {
+
+  }
+
+}
