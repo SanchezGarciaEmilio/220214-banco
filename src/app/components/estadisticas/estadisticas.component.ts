@@ -17,16 +17,15 @@ export class EstadisticasComponent implements OnInit {
     chart: 
     {
       backgroundColor: {
-        linearGradient: [0, 0, 500, 500],
+        linearGradient: [500, 500, 500, 500],
         stops: [
-            [0, 'rgb(192, 193, 192)'],
-            [1, 'rgb(217, 217, 217)']
+            [0, 'rgb(255, 255, 255)'],
         ]
     },
       type: 'column'
     },
     title: {
-      text: 'Ganancias de clientes'
+      text: 'Ganancias de clientes empresariales'
     },
     xAxis: {
       categories: []
@@ -35,7 +34,7 @@ export class EstadisticasComponent implements OnInit {
       enabled: false
     },
     series: [{
-      name: '',
+      name: 'Empresas',
       data: []
     }]
   };
@@ -60,9 +59,9 @@ export class EstadisticasComponent implements OnInit {
       this.chartOptions.xAxis["categories"] = dataCategorias
 
       Highcharts.chart("renta", this.chartOptions)
-
-
     })
   }
+
+  
 
 }
