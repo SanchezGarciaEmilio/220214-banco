@@ -9,7 +9,7 @@ import { tRegistro } from '../models/registro';
 })
 export class ClienteService {
   url = 'https://api-rest-banco.herokuapp.com/clientes'
-  urlPrestamo = 'https://api-rest-banco.herokuapp.com/registro'
+  url2 = 'https://api-rest-banco.herokuapp.com'
 
   constructor(private http: HttpClient) { }
 
@@ -46,7 +46,10 @@ export class ClienteService {
   }
 
   crearPrestamo(registro: tRegistro): Observable<any> {
-    return this.http.post(this.urlPrestamo, registro, {responseType: 'json'})
+    return this.http.post(this.url2 + '/registro', registro, {responseType: 'json'})
+  }
+  getPrestamos(): Observable<any> {
+    return this.http.get(this.url2 + '/prestamos')
   }
 
 }

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Persona, tPersona } from 'src/app/models/clientes';
-import { tRegistro } from 'src/app/models/registro';
+import { Registro, tRegistro } from 'src/app/models/registro';
 import { ClienteService } from 'src/app/services/clientes.service';
 @Component({
   selector: 'app-prestamo',
@@ -14,6 +14,7 @@ export class PrestamoComponent implements OnInit {
   prestamoForm: FormGroup
   idCliente: string = ""
   capital: number = 0
+  listPrestamos: Registro[] = []
 
   constructor(private fb: FormBuilder, private _clientesService: ClienteService) {
     this.prestamoForm = this.fb.group({
@@ -44,11 +45,13 @@ export class PrestamoComponent implements OnInit {
       this._clientesService.crearPrestamo(PRESTAMO).subscribe()
 
      })
-
   }
 
   listarPrestamos() {
-
+    this._clientesService.getPrestamos().subscribe(data => {
+      this.listPrestamos = data
+      this.prestamoForm.reset()
+    })
   }
 
 }
