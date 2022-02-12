@@ -41,7 +41,7 @@ export class EmpleadosService {
   registrarLimpiador(limpiador: tLimpiador): Observable<any> {
     return this.http.post(this.url + '/registrarDirectivo', limpiador)
   }
-  
+
   editarEmpleado(id: string, empleado: tComercial | tDirectivo | tLimpiador): Observable<any> {
     return this.http.put(this.url + '/actualizar/' + id, empleado)
   }

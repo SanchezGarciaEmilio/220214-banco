@@ -1,21 +1,21 @@
-.body{
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
-    background-color: aliceblue;
+.body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  background-color: aliceblue;
 }
 
 .fa-user-circle {
   font-size: 180px;
 }
 
-.login{
-    width: 100%;
-    max-width: 330px;
-    text-align: center;
+.login {
+  width: 100%;
+  max-width: 330px;
+  text-align: center;
 }
 
-.ancho{
-    width: 180px;
+.ancho {
+  width: 180px;
 }

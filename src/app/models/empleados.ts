@@ -124,15 +124,15 @@ export class Directivo extends Empleado {
 
         if (nivel == "A1") {
             salario = salario + 110
-        } else if ( nivel == "A2") {
+        } else if (nivel == "A2") {
             salario = salario + 130
-        } else if ( nivel == "B1") {
+        } else if (nivel == "B1") {
             salario = salario + 220
-        } else if ( nivel == "B2") {
+        } else if (nivel == "B2") {
             salario = salario + 240
-        } else if ( nivel == "C1") {
+        } else if (nivel == "C1") {
             salario = salario + 350
-        } else if ( nivel == "C2") {
+        } else if (nivel == "C2") {
             salario = salario + 500
         }
 
@@ -219,13 +219,13 @@ export class Comercial extends Empleado {
         let horasExtra: number
 
         //si trabaja menos de las horas estipuladas se hace una pequeña reducción de su salario
-        if (horas < 160) { 
+        if (horas < 160) {
             salario = salario - (salario * 0.01)
 
-        //se da un aumento por hora trabajada por encima de lo mínimo
+            //se da un aumento por hora trabajada por encima de lo mínimo
         } else {
             horasExtra = 160 - horas
-            salario = salario + (horasExtra * 12) 
+            salario = salario + (horasExtra * 12)
         }
 
         return Math.round(salario)
@@ -239,46 +239,46 @@ export type tDirectivo = {
     nombre: string;
     movil: string
     fijo: string
-    numero: string, 
+    numero: string,
     calle: string;
     iban: string;
     sueldo: number;
     fecha: Date;
     nivel: string;
-  };
+};
 
-  export type tLimpiador = {
+export type tLimpiador = {
     id: string;
     nombre: string;
     movil: string
     fijo: string
-    numero: string, 
+    numero: string,
     calle: string;
     iban: string;
     sueldo: number;
     fecha: Date;
     empresa: string;
-  };
+};
 
-  export type tComercial = {
+export type tComercial = {
     id: string;
     nombre: string;
     movil: string
     fijo: string
-    numero: string, 
+    numero: string,
     calle: string
     iban: string;
     sueldo: number;
     fecha: Date;
     horas: number;
-  };
+};
 
-  export type tEmpleado = {
+export type tEmpleado = {
     id: string;
     nombre: string;
     movil: string
     fijo: string
-    numero: string, 
+    numero: string,
     calle: string;
     iban: string;
     sueldo: number;
@@ -287,4 +287,4 @@ export type tDirectivo = {
     empresa: string,
     horas: string;
     minimo: string
-  }
+}

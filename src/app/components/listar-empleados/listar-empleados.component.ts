@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
-import { Directivo, Limpiador, Comercial, tComercial, tDirectivo, tLimpiador } from 'src/app/models/empleados';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 
 @Component({

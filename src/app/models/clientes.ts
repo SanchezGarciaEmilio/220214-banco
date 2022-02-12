@@ -179,7 +179,7 @@ export type tPersona2 = {
     _id: string;
     _nombre: string;
     _telefono: string;
-    _direccion: {numero: string, calle: string}
+    _direccion: { numero: string, calle: string }
     _capital: number;
     _ingresos: number;
     _comercial: string;

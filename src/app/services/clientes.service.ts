@@ -46,7 +46,7 @@ export class ClienteService {
   }
 
   crearPrestamo(registro: tRegistro): Observable<any> {
-    return this.http.post(this.url2 + '/registro', registro, {responseType: 'json'})
+    return this.http.post(this.url2 + '/registro', registro, { responseType: 'json' })
   }
   getPrestamos(): Observable<any> {
     return this.http.get(this.url2 + '/prestamos')

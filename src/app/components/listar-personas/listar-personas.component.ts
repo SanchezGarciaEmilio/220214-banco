@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
-import { Persona, tPersona } from 'src/app/models/clientes';
+import { Persona } from 'src/app/models/clientes';
 import { ClienteService } from 'src/app/services/clientes.service';
 
 @Component({

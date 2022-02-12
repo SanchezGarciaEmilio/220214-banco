@@ -1,8 +1,6 @@
-import { Component, OnInit, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
-import { Persona, tPersona } from 'src/app/models/clientes';
 import { Registro, tRegistro } from 'src/app/models/registro';
 import { ClienteService } from 'src/app/services/clientes.service';
 @Component({
@@ -30,10 +28,10 @@ export class PrestamoComponent implements OnInit {
 
   crearPrestamo() {
 
-     this.idCliente = this.prestamoForm.get('idCliente')?.value
+    this.idCliente = this.prestamoForm.get('idCliente')?.value
 
-     this._clientesService.obtenerCliente(this.idCliente).subscribe(data => {
-       this.capital = data[0]._ingresos
+    this._clientesService.obtenerCliente(this.idCliente).subscribe(data => {
+      this.capital = data[0]._ingresos
 
       const PRESTAMO: tRegistro = {
         idComercial: this.prestamoForm.get('idEmpleado')?.value,
@@ -46,7 +44,7 @@ export class PrestamoComponent implements OnInit {
       this.toastr.success('El prestamo fue creada correctamente', 'Prestamo creado');
       this.prestamoForm.reset()
 
-     })
+    })
   }
 
   listarPrestamos() {

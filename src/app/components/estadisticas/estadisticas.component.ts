@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { Cliente, Empresa, Persona, Renta, tPersona, tPersona2, tRenta } from 'src/app/models/clientes';
+import { Cliente, Persona, Renta, tPersona2, tRenta } from 'src/app/models/clientes';
 import { ClienteService } from 'src/app/services/clientes.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 
@@ -16,14 +16,14 @@ export class EstadisticasComponent implements OnInit {
   arrayRenta: tRenta[] = []
 
   chartOptions: any = {
-    chart: 
+    chart:
     {
       backgroundColor: {
         linearGradient: [500, 500, 500, 500],
         stops: [
-            [0, 'rgb(255, 255, 255)'],
+          [0, 'rgb(255, 255, 255)'],
         ]
-    },
+      },
       type: 'column'
     },
     title: {
@@ -82,16 +82,16 @@ export class EstadisticasComponent implements OnInit {
           dCliente._ingresos,
           dCliente._comercial)
 
-          renta = tmpCliente.renta()
-          let dRenta: tRenta = {
-            _id: null,
-            _nombre: null,
-            _renta: null
-          }
-          dRenta._id = tmpCliente._id
-          dRenta._nombre = tmpCliente._nombre
-          dRenta._renta = renta
-          this.arrayRenta.push(dRenta)
+        renta = tmpCliente.renta()
+        let dRenta: tRenta = {
+          _id: null,
+          _nombre: null,
+          _renta: null
+        }
+        dRenta._id = tmpCliente._id
+        dRenta._nombre = tmpCliente._nombre
+        dRenta._renta = renta
+        this.arrayRenta.push(dRenta)
       }
       this.listRenta = this.arrayRenta.map((renta: any) => {
         return new Renta(renta._id, renta._nombre, renta._renta)
@@ -110,6 +110,6 @@ export class EstadisticasComponent implements OnInit {
     })
   }
 
-  
+
 
 }
