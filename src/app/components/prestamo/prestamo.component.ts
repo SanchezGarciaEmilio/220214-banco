@@ -15,6 +15,7 @@ export class PrestamoComponent implements OnInit {
   idCliente: string = ""
   capital: number = 0
   listPrestamos: Registro[] = []
+  toastr: any;
 
   constructor(private fb: FormBuilder, private _clientesService: ClienteService) {
     this.prestamoForm = this.fb.group({
@@ -43,6 +44,8 @@ export class PrestamoComponent implements OnInit {
       }
       console.log(PRESTAMO)
       this._clientesService.crearPrestamo(PRESTAMO).subscribe()
+      this.toastr.success('El prestamo fue creada correctamente', 'Prestamo creado');
+      this.prestamoForm.reset()
 
      })
   }
@@ -50,7 +53,6 @@ export class PrestamoComponent implements OnInit {
   listarPrestamos() {
     this._clientesService.getPrestamos().subscribe(data => {
       this.listPrestamos = data
-      this.prestamoForm.reset()
     })
   }
 
