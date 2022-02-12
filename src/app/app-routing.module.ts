@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'empleados', component: ListarEmpleadosComponent},
   { path: 'estadisticas', component: EstadisticasComponent},
   { path: 'prestamo', component: PrestamoComponent},
-  { path: '', component: HomeComponent},
+  { path: 'home', component: HomeComponent},
 ];
 
 @NgModule({
