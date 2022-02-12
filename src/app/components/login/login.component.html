@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="body">
+  <div class="login">
+    <i class="fas fa-user-circle"></i>
+    <div class="example-container">
+      <form [formGroup]="loginForm" (ngSubmit)="entrar()">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Usuario" formControlName="usuario"/>
+        </mat-form-field>
+        <div class="example-container">
+          <mat-form-field>
+            <input type="password" matInput placeholder="Contraseña" formControlName="contraseña"/>
+          </mat-form-field>
+          <br />
+          <button type="submit" class="ancho" mat-stroked-button [disabled]="loginForm.invalid">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

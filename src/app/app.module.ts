@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input';
 
 // Componentes
 import { ListarPersonasComponent } from './components/listar-personas/listar-personas.component';
@@ -19,6 +21,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { PrestamoComponent } from './components/prestamo/prestamo.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { LoginComponent } from './components/login/login.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

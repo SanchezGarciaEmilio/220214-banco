@@ -15,9 +15,8 @@ export class PrestamoComponent implements OnInit {
   idCliente: string = ""
   capital: number = 0
   listPrestamos: Registro[] = []
-  toastr: any;
 
-  constructor(private fb: FormBuilder, private _clientesService: ClienteService) {
+  constructor(private fb: FormBuilder, private _clientesService: ClienteService, private toastr: ToastrService) {
     this.prestamoForm = this.fb.group({
       idCliente: ['', Validators.required],
       idEmpleado: ['', Validators.required],
