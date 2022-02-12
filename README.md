@@ -1,27 +1,37 @@
-# BancoApp
+# Open Bank 💰
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+### Angular
 
-## Development server
+<img align="left" alt="Mongo" width="22px" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.lafabriquedecode.com%2Fblog%2Fwp-content%2Fuploads%2F2013%2F04%2Fmongo_logo.png&f=1&nofb=1" />
+<img align="left" alt="TypeScript" width="22px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F1600%2F1*FIL7OY2C71HPz9vNVeHsAw.png&f=1&nofb=1" />
+<img align="left" alt="node js" width="22px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.freebiesupply.com%2Flogos%2Flarge%2F2x%2Fnodejs-icon-logo-png-transparent.png&f=1&nofb=1" />
+<img align="left" alt="heroku" width="22px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fclipground.com%2Fimages%2Fheroku-logo-3.png&f=1&nofb=1" />
+<img align="left" alt="angular" width="22px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.freebiesupply.com%2Flogos%2Flarge%2F2x%2Fangular-icon-logo-png-transparent.png&f=1&nofb=1" />
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## ‎
 
-## Code scaffolding
+Aplicación para uso empresarial de la gestión de un banco. Permitiendo ver y registrar clientes (así como modificarlos), ver los empleados, algunas estadísticas de la empresa o la creación de préstamos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ‎
 
-## Build
+# Código 🔎
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+En la carpeta **src/app** encontraremos la mayor parte del código creado para este proyecto.
 
-## Running unit tests
+Tendremos la carpeta de **services** con los dos servicios necesarios para la obtención y subida de datos con una API que funcionará de enlace entre nuestra aplicación y la base de datos.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+En la carpeta de **components** tendremos todas las páginas utilizadas.
 
-## Running end-to-end tests
+## ‎
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Documentación 📝
 
-## Further help
+En la carpeta de **documentacion** hemos incluido las nociones teóricas necesarias para este proyecto y una explicación del funcionamiento y uso de cada componente.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## ‎
+
+# Fuentes 📋
+
+Algunos de los datos generados de prueba han sdnio mediante la página web de _[mockaroo](https://mockaroo.com/)_.
+
+> Emilio Sánchez García
