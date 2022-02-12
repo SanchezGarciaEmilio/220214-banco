@@ -175,6 +175,15 @@ export type tPersona = {
     ingresos: number;
     comercial: string;
 }
+export type tPersona2 = {
+    _id: string;
+    _nombre: string;
+    _telefono: string;
+    _direccion: {numero: string, calle: string}
+    _capital: number;
+    _ingresos: number;
+    _comercial: string;
+}
 
 export type tEmpresa = {
     id: string;
@@ -188,9 +197,9 @@ export type tEmpresa = {
 }
 
 export type tRenta = {
-    _id: String,
-    _nombre: String,
-    _renta: Number
+    _id: string | null,
+    _nombre: string | null,
+    _renta: number | null
 }
 
 export class Renta {

@@ -1,4 +1,27 @@
 <div class="container mt-5 card card-body">
+  <div class="btn-group btn-group-toggle mt-2 div-centrado" data-toggle="buttons">
+    <label class="btn btn-secondary active">
+      <input
+        (click)="obtenerRentaEmpresa()"
+        type="radio"
+        name="options"
+        id="option1"
+        autocomplete="off"
+        checked
+      />
+      Empresariales
+    </label>
+    <label class="btn btn-secondary">
+      <input
+        (click)="obtenerRentaPersona()"
+        type="radio"
+        name="options"
+        id="option2"
+        autocomplete="off"
+      />
+      Personales
+    </label>
+  </div>
   <div id="renta">
     <highcharts-chart
       [Highcharts]="Highcharts"
