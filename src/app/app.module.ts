@@ -17,6 +17,7 @@ import { ListarEmpleadosComponent } from './components/listar-empleados/listar-e
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { PrestamoComponent } from './components/prestamo/prestamo.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PrestamoComponent } from './components/prestamo/prestamo.component';
     RegistrarEmpresasComponent,
     ListarEmpleadosComponent,
     EstadisticasComponent,
-    PrestamoComponent
+    PrestamoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
