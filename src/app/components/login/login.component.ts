@@ -24,8 +24,10 @@ export class LoginComponent implements OnInit {
   entrar() {
     const usuario = this.loginForm.value.usuario
     const contraseña = this.loginForm.value.contraseña
-    if (usuario == "admin" && contraseña == "admin") {
+    if (usuario == "empleado" && contraseña == "1234") {
       this.router.navigate(['/home'])
+    } else if (usuario == "admin" && contraseña == "admin") {
+      this.router.navigate(['/empleados'])
     } else {
       this.toastr.error('El usuario o la contraseña son incorrectos', 'Login incorrecto');
 

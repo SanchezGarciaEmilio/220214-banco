@@ -1,0 +1,6 @@
+.right {
+  float: right;
+  padding-left: 2000px;
+  top: 10;
+  z-index: 100;
+}

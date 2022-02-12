@@ -71,6 +71,7 @@ export class EstadisticasComponent implements OnInit {
       let dCliente: tPersona2
       let tmpCliente: Cliente
       let renta: number
+      this.arrayRenta = []
 
       this.listPersonas = data
       for (dCliente of this.listPersonas) {
