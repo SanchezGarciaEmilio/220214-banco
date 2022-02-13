@@ -71,11 +71,4 @@ export class ListarEmpleadosComponent implements OnInit {
     }
   }
 
-  eliminarEmpleado(id: any) {
-    this.listEmpleado = this.listEmpleado.filter((h) => h.id !== id)
-    this._empleadoService.eliminarEmpleado(id).subscribe()
-    this.toastr.error('El empleado fue eliminado correctamente', 'Empleado eliminado')
-  }
-
-
 }
