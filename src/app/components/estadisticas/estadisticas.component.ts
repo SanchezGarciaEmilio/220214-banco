@@ -37,7 +37,8 @@ export class EstadisticasComponent implements OnInit {
     },
     series: [{
       name: '',
-      data: []
+      data: [],
+      color: '#B66467',
     }]
   };
 
